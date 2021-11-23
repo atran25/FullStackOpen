@@ -1,5 +1,6 @@
 import React from "react";
 
+//Git Access Token: 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
 
 const Header = (props) => {
   return (
@@ -9,11 +10,22 @@ const Header = (props) => {
 
 const Content = (props) => {
   return (
+    <div>
+      <Part part_name={props.part1} amount={props.exercises1} />
+      <Part part_name={props.part2} amount={props.exercises2} />
+      <Part part_name={props.part3} amount={props.exercises3} />
+    </div>
+  )
+}
+
+const Part = (props) => {
+  return (
     <p>
       {props.part_name}: {props.amount}
     </p>
   )
 }
+
 const Total = (props) => {
   return (
     <p>Number of exercises: {props.amount_1 + props.amount_2 + props.amount_3}</p>
@@ -32,9 +44,7 @@ const App = () => {
   return (
     <div>
       <Header name={course}/>
-      <Content part_name={part1} amount={exercises1} />
-      <Content part_name={part2} amount={exercises2} />
-      <Content part_name={part3} amount={exercises3} />
+      <Content part1={part1} exercises1={exercises1} part2={part2} exercises2={exercises2} part3={part3} exercises3={exercises3} />
       <Total amount_1={exercises1} amount_2={exercises2} amount_3={exercises3} />
     </div>
   )
